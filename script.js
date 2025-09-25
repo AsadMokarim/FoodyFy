@@ -113,8 +113,8 @@ const recipesSection = document.querySelector(".recipes_avl");
 
 // 🔑 Multiple API keys
 const apiKeys = [
-  "f4e36def5e3146538cc503501eb70fd5",
   "a7766a5d5e744e72a6260be5dd0e4bbf",
+  "f4e36def5e3146538cc503501eb70fd5",
   "75c1def06a944f27a14bb5040a508151"
 ];
 let currentKeyIndex = 0;
