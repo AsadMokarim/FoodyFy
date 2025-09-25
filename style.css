@@ -1,0 +1,1291 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --tm-red: #ff8c69;
+    --soft-orange: #ffa07a;
+    --tm-green: #8FBC8F;
+    --tm-blue: #1E2939;
+    --tm-grey: #4A5565;
+    --bg-color: #FAF9EF;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+
+nav .btn-outline-success {
+    background-color: var(--tm-red);
+    color: white;
+    border: none;
+    border-radius: 12px;
+}
+
+nav .mr-sm-2 {
+    border-radius: 12px;
+}
+
+nav .mr-auto {
+    margin-left: 30%;
+}
+
+
+
+/* Carousel */
+.crsl {
+    background-image: url(images/ramiro-mendes-NpbAlaDAjgs-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 100px 100px;
+    /* margin-top: 40px; */
+}
+
+.crsl .crsl_card {
+    width: 50vw;
+    border-radius: 25px;
+    background-color: #fff;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.crsl .crsl_card h2 {
+    color: var(--tm-blue);
+    font-weight: 800;
+    font-size: 3.5rem;
+    text-align: center;
+}
+
+.crsl .crsl_card h2:nth-child(2) {
+    color: var(--tm-green);
+}
+
+.crsl .crsl_card p {
+    color: var(--tm-grey);
+}
+
+.crsl .crsl_card form input {
+    width: 400px;
+    border: 3px solid #E9F2E9;
+    border-radius: 10px;
+    padding: 7px 4px;
+    outline: none;
+}
+
+
+.crsl .crsl_card form button {
+    background-color: var(--tm-red);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.ktn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ktn .ktn_card {
+    width: 60%;
+    /* border: 1px solid black; */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 50px;
+}
+
+.ktn .ktn_card h2:first-child {
+    font-size: 2.8rem;
+    color: var(--tm-blue);
+    font-weight: bold;
+}
+
+.ktn .ktn_card p {
+    color: var(--tm-grey);
+}
+
+.ktn .ktn_card .ktn_box {
+    width: 100%;
+    border-radius: 20px;
+
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 30px;
+    margin-top: 30px;
+    gap: 5px;
+}
+
+.ktn .ktn_card .ktn_box form {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.ktn .ktn_card .ktn_box form input {
+    width: 95%;
+    border-radius: 12px;
+    border: 1px solid #E9F2E9;
+    background-color: #ffa07a3d;
+    padding: 5px 17px;
+    outline: none;
+}
+
+.ktn .ktn_card .ktn_box form button {
+    background-color: var(--tm-green);
+    width: 40px;
+    height: 35px;
+    border-radius: 30%;
+    padding: 10px 4px;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+
+}
+
+.ktn .ktn_card .ktn_box p {
+    align-self: flex-start;
+    color: var(--tm-grey);
+    font-size: .9rem;
+    margin-left: 5px;
+}
+
+.ktn .ktn_card .ktn_box .cook_now {
+    background-color: var(--tm-red);
+    color: #fff;
+    padding: 3px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 50%;
+    justify-content: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.ktn .ktn_card .ktn_box .ingredients_heading {
+    align-self: flex-start;
+    color: var(--tm-blue);
+    font-weight: 500;
+}
+
+.ktn .ktn_card .ktn_box .ingr {
+    list-style-type: none;
+    display: flex;
+    align-self: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ktn .ktn_card .ktn_box .ingr li {
+    border: 1px solid var(--tm-green);
+    padding: 6px 12px;
+    border-radius: 12px;
+    color: var(--tm-green);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    white-space: nowrap;
+
+}
+
+.remove-btn {
+    cursor: pointer;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+    transition: fill 0.3s ease;
+}
+
+.remove-btn svg {
+    width: 100%;
+    height: 100%;
+    transition: fill 0.3s ease;
+}
+
+
+.ktn .ktn_card .ktn_box .ppl_head {
+    align-self: flex-start;
+    font-size: .9rem;
+    font-weight: 400;
+    margin-top: 70px;
+}
+
+
+
+.ktn .ktn_card .ktn_box .ppl_ing {
+    list-style-type: none;
+    display: flex;
+    align-self: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.ktn .ktn_card .ktn_box .ppl_ing li {
+    border: 1px solid var(--soft-orange);
+    padding: 6px 8px;
+    font-size: 0.8rem;
+    border-radius: 12px;
+    color: var(--soft-orange);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+    white-space: nowrap;
+
+}
+
+
+
+
+/* Recipe Card */
+
+.recipes_avl {
+    /* padding: 10px 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    justify-content: space-evenly; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.recipes_avl .recipe_card {
+    /* display: flex;
+    flex-direction: column; */
+    border-radius: 20px;
+    width: 350px;
+    /* max-width: 321px; */
+    gap: 8px;
+    /* padding: 5px 4px; */
+    /* align-items: center; */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.recipes_avl .recipe_card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+}
+
+.recipes_avl .recipe_card .rcp_card_img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.recipes_avl .recipe_card .rcp_card_img img {
+    /* border-radius: 20px; */
+    /* max-width: 385px; */
+    width: 100%;
+    height: 100%;
+    margin-left: 3px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.recipes_avl .recipe_card:hover .rcp_card_img img {
+    transform: scale(1.05);
+}
+
+
+
+
+.recipes_avl .recipe_card .rcp_card_img .rating {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 6px 12px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #333;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.recipes_avl .recipe_card .rcp_card_img .star {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+.recipes_avl .recipe_card .card_content {
+    padding: 1.5rem;
+}
+
+
+
+
+
+
+.recipes_avl .recipe_card .card_content h4 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+    /* font-size: 1rem; */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+
+
+.recipe-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.meta-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+}
+
+
+/* .recipes_avl .recipe_card .card_content a {
+    width: 90%;
+    background-color: var(--tm-green);
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+    border-radius: 12px;
+} */
+
+.view-recipe-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 35px;
+    /* text-align: center; */
+    /* background: linear-gradient(135deg, #81c784 0%, #66bb6a 100%); */
+    background-color: var(--tm-green);
+    color: white;
+    border: none;
+    padding: 0.9rem 1.5rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none;
+}
+
+.view-recipe-btn:hover {
+    background: linear-gradient(135deg, #66bb6a 0%, #4caf50 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+    text-decoration: none;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .recipes_avl {
+        grid-template-columns: 1fr;
+        padding: 0 1rem;
+    }
+
+    body {
+        padding: 1rem;
+    }
+}
+
+
+
+/* Reduce waste section */
+
+.red_waste {
+    padding: 30px 100px;
+    display: flex;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 400px;
+    /* Add bottom margin to account for .red_count extending below */
+}
+
+
+
+.reduce_content {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 600px;
+    gap: 4px;
+    /* border: 1px solid blue; */
+}
+
+.reduce_content .red_title {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.reduce_content .red_title .red_title_img {
+    background-color: var(--tm-green);
+    width: 35px;
+    height: 35px;
+    border-radius: 40%;
+}
+
+.reduce_content .red_title .red_title_img img {
+    padding: 5px;
+    width: 35px;
+}
+
+.reduce_content .red_title h4 {
+    color: var(--tm-green);
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.reduce_content .red_head_1,
+.red_head_2 {
+    font-size: 2.4rem;
+    line-height: 140%;
+    font-weight: 700;
+    color: var(--tm-green);
+}
+
+.reduce_content .red_head_1 {
+    margin-top: 10px;
+    color: #2d3748;
+}
+
+.reduce_content p {
+    width: 90%;
+    color: var(--tm-grey);
+    margin-top: 20px;
+    line-height: 170%;
+}
+
+
+
+
+
+
+
+
+
+
+
+.red_card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    gap: 13px;
+}
+
+
+.red_card_item {
+    background: #fff;
+    height: 300px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 10px;
+    gap: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1)
+}
+
+
+
+
+.red_card_item .red_card_img {
+    background-color: #8fbc8f20;
+    width: 40px;
+    height: 40px;
+    border-radius: 40%;
+}
+
+.red_card_item .red_card_img img {
+    padding: 7px;
+    width: 40px;
+}
+
+
+
+.red_card_item h4:nth-child(2) {
+
+    margin-top: 23px;
+    font-size: 1.5rem;
+    color: var(--tm-green);
+    font-weight: bolder;
+}
+
+
+
+.red_card_item h4:nth-child(3) {
+    font-weight: 400;
+    font-size: 0.9rem;
+    color: #1E2939;
+    margin-top: 20px;
+}
+
+.red_card_item p {
+    color: var(--tm-grey);
+    font-size: 0.75rem;
+}
+
+
+
+
+.red_count {
+    background: linear-gradient(to right, #ffffff, #faeee2);
+    width: 100%;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+    padding: 20px 40px;
+    border-radius: 12px;
+}
+
+.red_count .red_count_content h4 {
+    color: #1E2939;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 140%;
+
+}
+
+.red_count .red_count_content p {
+    font-size: 0.9rem;
+    color: var(--tm-grey);
+}
+
+
+
+
+
+.red_btn {
+    width: 50%;
+    text-decoration: none;
+    color: white;
+    background-color: var(--tm-green);
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: fill 0.7s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+}
+
+.red_btn:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #66bb6a;
+}
+
+
+
+
+.red_count_img {
+    background-color: var(--tm-green);
+    width: 40px;
+    height: 40px;
+    border-radius: 40%;
+}
+
+.red_count_img img {
+    padding: 7px;
+    width: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+.red_img {
+    padding-left: 30px;
+    width: 50%;
+    height: 100%;
+    /* border: 1px solid black; */
+    align-self: flex-end;
+    margin-left: auto;
+    overflow: hidden;
+}
+
+.red_img img {
+    border-radius: 20px;
+    width: 90%;
+    object-fit: cover;
+}
+
+
+
+
+
+/* Fix the footer positioning */
+footer {
+    bottom: -30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 100px;
+    width: 100%;
+    clear: both;
+    position: relative;
+    /* Ensure footer is in normal flow */
+    z-index: 1;
+    /* Bring footer above other elements */
+}
+
+footer p {
+    margin: 0;
+    /* Remove default margin */
+    color: var(--tm-grey);
+}
+
+footer ul {
+    display: flex;
+    list-style-type: none;
+    gap: 20px;
+    /* Add space between links */
+    margin: 0;
+    /* Remove default margin */
+    padding: 0;
+    /* Remove default padding */
+}
+
+footer ul li {
+    margin: 0;
+    /* Ensure no margin on list items */
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--tm-grey);
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--tm-green);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* hover */
+
+
+
+.crsl .crsl_card form button:hover,
+nav .btn-outline-success:hover,
+.ktn .ktn_card .ktn_box .cook_now:hover {
+    background-color: var(--soft-orange);
+}
+
+
+.ktn .ktn_card .ktn_box .ppl_ing li:hover {
+    background-color: #eeab9047;
+}
+
+.remove-btn:hover svg {
+    color: red;
+}
+
+
+.ktn .ktn_card .ktn_box form button:hover {
+    background-color: #8fbc8f93;
+}
+
+.ktn .ktn_card .ktn_box .ingr li:hover {
+    background-color: #a5c5a578;
+}
+
+
+
+/* focus */
+
+.crsl .crsl_card form input:focus,
+.ktn .ktn_card .ktn_box form input:focus {
+    border-color: var(--tm-green);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5)
+}
+
+
+
+
+
+
+
+
+/* Responsive */
+
+
+
+
+
+
+
+/* Tablet Styles (768px - 1024px) */
+@media (max-width: 1024px) {
+
+    /* Navigation adjustments */
+    nav .mr-auto {
+        margin-left: 10%;
+    }
+
+    /* Carousel section */
+    .crsl {
+        padding: 80px 50px;
+    }
+
+    .crsl .crsl_card {
+        width: 70vw;
+        padding: 30px 15px;
+    }
+
+    .crsl .crsl_card h2 {
+        font-size: 2.8rem;
+    }
+
+    .crsl .crsl_card form input {
+        width: 350px;
+    }
+
+    /* Kitchen section */
+    .ktn .ktn_card {
+        width: 80%;
+        padding: 40px;
+    }
+
+    .ktn .ktn_card h2:first-child {
+        font-size: 2.4rem;
+    }
+
+    /* Reduce waste section */
+    .red_waste {
+        padding: 30px 50px;
+        margin-bottom: 300px;
+    }
+
+    .red_card {
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .red_card_item:last-child {
+        grid-column: 1 / -1;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Footer */
+    footer {
+        padding: 30px 50px;
+    }
+
+    .red_count {
+        margin-bottom: 180px;
+        /* Increase if needed */
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Mobile Styles (max-width: 768px) */
+@media (max-width: 768px) {
+
+    /* Navigation */
+    nav .mr-auto {
+        margin-left: 0;
+    }
+
+    .navbar-brand {
+        font-size: 1.2rem;
+    }
+
+    /* Carousel section */
+    .crsl {
+        padding: 60px 20px;
+        background-position: center;
+    }
+
+    .crsl .crsl_card {
+        width: 90vw;
+        padding: 25px 15px;
+        gap: 15px;
+    }
+
+    .crsl .crsl_card h2 {
+        font-size: 2.2rem;
+        line-height: 1.2;
+    }
+
+    .crsl .crsl_card form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .crsl .crsl_card form input {
+        width: 100%;
+        max-width: 300px;
+        padding: 12px 8px;
+    }
+
+    .crsl .crsl_card form button {
+        width: 100%;
+        max-width: 200px;
+        padding: 12px 20px;
+        font-size: 1.1rem;
+    }
+
+    /* Kitchen section */
+    .ktn .ktn_card {
+        width: 95%;
+        padding: 30px 20px;
+    }
+
+    .ktn .ktn_card h2:first-child {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .ktn .ktn_card p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .ktn .ktn_card .ktn_box {
+        padding: 30px 20px;
+        margin-top: 20px;
+    }
+
+    .ktn .ktn_card .ktn_box form {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .ktn .ktn_card .ktn_box form input {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 16px;
+        /* Prevents zoom on iOS */
+    }
+
+    .ktn .ktn_card .ktn_box form button {
+        width: 100%;
+        height: 45px;
+        border-radius: 12px;
+        font-size: 1.2rem;
+    }
+
+    .ktn .ktn_card .ktn_box .cook_now {
+        width: 100%;
+        height: 50px;
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+
+    .ktn .ktn_card .ktn_box .ingr {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .ktn .ktn_card .ktn_box .ingr li {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .ktn .ktn_card .ktn_box .ppl_ing {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .ktn .ktn_card .ktn_box .ppl_ing li {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+
+    /* Recipes section */
+    .recipes_avl {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .recipes_avl h2 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 20px;
+        grid-column: 1;
+    }
+
+    .recipes_avl .recipe_card {
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .recipes_avl .recipe_card .card_content h4 {
+        font-size: 1.2rem;
+    }
+
+    /* Reduce waste section */
+    .red_waste {
+        padding: 30px 20px;
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 50px;
+    }
+
+    .reduce_content {
+        width: 100%;
+        height: auto;
+        gap: 15px;
+    }
+
+    .reduce_content .red_head_1,
+    .reduce_content .red_head_2 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .reduce_content p {
+        width: 100%;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    .red_card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .red_card_item {
+        height: 250px;
+        margin: 0 auto;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .red_count {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        margin-top: 40px;
+        margin-bottom: 130px;
+    }
+
+    .red_count .red_count_img {
+        align-self: flex-start;
+    }
+
+    .red_count .red_count_content h4 {
+        font-size: 1rem;
+    }
+
+    .red_btn {
+        width: 100%;
+        /* text-align is unnecessary if using flexbox for centering */
+        height: 50px;
+        /* New fixed height for mobile */
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .red_img {
+        width: 100%;
+        padding-left: 0;
+        margin-left: 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .red_img img {
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* Footer */
+    footer {
+        padding: 30px 20px;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+/* Small Mobile Styles (max-width: 480px) */
+@media (max-width: 480px) {
+
+    /* Carousel section */
+    .crsl {
+        padding: 40px 15px;
+    }
+
+    .crsl .crsl_card {
+        width: 95vw;
+        padding: 20px 15px;
+    }
+
+    .crsl .crsl_card h2 {
+        font-size: 1.8rem;
+    }
+
+    .crsl .crsl_card p {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* Kitchen section */
+    .ktn .ktn_card {
+        width: 98%;
+        padding: 20px 15px;
+    }
+
+    .ktn .ktn_card h2:first-child {
+        font-size: 1.6rem;
+    }
+
+    .ktn .ktn_card .ktn_box {
+        padding: 25px 15px;
+    }
+
+    /* Reduce waste section */
+    .reduce_content .red_head_1,
+    .reduce_content .red_head_2 {
+        font-size: 1.5rem;
+    }
+
+    .reduce_content .red_title h4 {
+        font-size: 0.9rem;
+    }
+
+    .red_card_item {
+        height: 220px;
+        padding: 12px 8px;
+    }
+
+    .red_card_item h4:nth-child(2) {
+        font-size: 1.3rem;
+        margin-top: 15px;
+    }
+
+    /* Footer */
+    footer {
+        padding: 25px 15px;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+
+    footer ul li a {
+        font-size: 0.9rem;
+    }
+}
+
+/* Landscape mobile styles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .crsl {
+        padding: 40px 20px;
+    }
+
+    .crsl .crsl_card h2 {
+        font-size: 2rem;
+    }
+
+    .red_waste {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .reduce_content {
+        width: 60%;
+    }
+
+    .red_img {
+        width: 40%;
+    }
+
+    .red_card {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .red_card_item:last-child {
+        grid-column: 1 / -1;
+        max-width: 250px;
+        margin: 0 auto;
+    }
+}
+
+/* Fix for very large screens */
+@media (min-width: 1400px) {
+    .crsl {
+        padding: 120px 150px;
+    }
+
+    .ktn .ktn_card {
+        width: 50%;
+    }
+
+    .red_waste {
+        padding: 50px 150px;
+        max-width: 1400px;
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 400px;
+    }
+
+    .recipes_avl {
+        max-width: 1400px;
+    }
+
+    footer {
+        padding: 40px 150px;
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+
+    .recipes_avl .recipe_card,
+    .view-recipe-btn,
+    .red_btn,
+    .ktn .ktn_card .ktn_box form button,
+    .crsl .crsl_card form button {
+        transition: none;
+    }
+
+    .recipes_avl .recipe_card:hover {
+        transform: none;
+    }
+
+    .recipes_avl .recipe_card:hover .rcp_card_img img {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    nav,
+    .crsl,
+    footer {
+        display: none;
+    }
+
+    .recipes_avl .recipe_card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+
+    .red_waste {
+        page-break-inside: avoid;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .crsl .crsl_card {
+        border: 2px solid #000;
+    }
+
+    .ktn .ktn_card .ktn_box {
+        border: 2px solid #000;
+    }
+
+    .recipes_avl .recipe_card {
+        border: 2px solid #000;
+    }
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#"><img src="images/chef.png" width="40px" alt="">Foodyfy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Recipes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <section class="crsl">
+
+        <div class="crsl_card">
+            <h2>Find Recipes with</h2>
+            <h2>What You Have</h2>
+            <p>Transform your leftover ingredients into delicious meals. Reduce food waste while discovering amazing
+                recipes tailored to what's in your kitchen.</p>
+            <form action="ingForm">
+                <input class="input_ing" type="text" placeholder="Enter ingredients you have... (e.g., chicken, tomatoes , egg)">
+                <button type="submit">Cook now</button>
+            </form>
+        </div>
+    </section>
+    <section class="ktn" id="ktn">
+        <div class="ktn_card">
+            <h2>What's in Your Kitchen</h2>
+            <p>Add your ingredients and let us find the perfect recipes for you</p>
+            <div class="ktn_box">
+                <form id="ingredientForm" action="">
+                    <input class="input_ingr" type="text" placeholder="Type an ingredient and press Enter...">
+                    <button type="submit"><img src="images/icons8-plus-24.png" width="15px" alt=""></button>
+                </form>
+                <p>Press Enter or comma to add ingredients</p>
+                <h5 class="ingredients_heading" style="display:none;">Your Ingredients (0)</h5>
+                <ul class="ingr"></ul>
+                <button class="cook_now"><img src="images/chef.png" width="25px" alt="">Cook Now with 0
+                    ingredients</button>
+                <h5 class="ppl_head">Popular Ingredients:</h5>
+                <ul class="ppl_ing">
+                    <li class="popular-item">+ Chicken</li>
+                    <li class="popular-item">+ Tomatoes</li>
+                    <li class="popular-item">+ Onions</li>
+                    <li class="popular-item">+ Garlic</li>
+                    <li class="popular-item">+ Pasta</li>
+                    <li class="popular-item">+ Rice</li>
+                    <li class="popular-item">+ Eggs</li>
+                    <li class="popular-item">+ Cheese</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Recipe -->
+    <section class="recipes_avl">
+        <h2>Popular Recipes</h2>
+        <div class="recipe_card">
+            <div class="rcp_card_img">
+                <img src="images/api/655573-312x231.jpg">
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span>4.7</span>
+                </div>
+            </div>
+            <div class="card_content">
+
+                <h4>Penne Arrabiata</h4>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>45 min</span>
+                    </div>
+                </div>
+                <a class="view-recipe-btn" style="color: white;" href="https://spoonacular.com/recipes/Penne-Arrabiata-655573" target="_blank">View Recipe</a>
+
+            </div>
+        </div>
+        <div class="recipe_card">
+            <div class="rcp_card_img">
+                <img src="images/api/642594-312x231.jpg">
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span>4.6</span>
+                </div>
+            </div>
+            <div class="card_content">
+
+                <h4>Farfalle with Shrimps, Tomatoes Basil Sauce</h4>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>30 min</span>
+                    </div>
+                </div>
+                <a class="view-recipe-btn" style="color: white;" href="https://spoonacular.com/recipes/Farfalle-with-Shrimps,-Tomatoes-Basil-Sauce-642594" target="_blank">View Recipe</a>
+
+            </div>
+        </div>
+        <div class="recipe_card">
+            <div class="rcp_card_img">
+                <img src="images/api/511748-312x231.jpg">
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span>4.1</span>
+                </div>
+            </div>
+            <div class="card_content">
+
+                <h4>Breakfast Tacos</h4>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>40 min</span>
+                    </div>
+                </div>
+                <a class="view-recipe-btn" style="color: white;" href="https://spoonacular.com/recipes/Baked-Cherry-Tomatoes-With-Spaghetti-633505" target="_blank">View Recipe</a>
+
+            </div>
+        </div>
+        <div class="recipe_card">
+            <div class="rcp_card_img">
+                <img src="images/api/637426-312x231.jpg">
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span>4.3</span>
+                </div>
+            </div>
+            <div class="card_content">
+
+                <h4>Channa-Chickpea, Potato & Cauliflower Curry</h4>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>45 min</span>
+                    </div>
+                </div>
+                <a class="view-recipe-btn" style="color: white;" href="https://spoonacular.com/recipes/Channa-Chickpea,-Potato-&-Cauliflower-Curry-637426" target="_blank">View Recipe</a>
+
+            </div>
+        </div>
+        <div class="recipe_card">
+            <div class="rcp_card_img">
+                <img src="images/api/984198-312x231.png">
+                <div class="rating">
+                    <span class="star">⭐</span>
+                    <span>3.8</span>
+                </div>
+            </div>
+            <div class="card_content">
+
+                <h4>BBQ Gochujang Cauliflower Fried Rice</h4>
+                <div class="recipe-meta">
+                    <div class="meta-item">
+                        <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span>45 min</span>
+                    </div>
+                </div>
+                <a class="view-recipe-btn" style="color: white;" href="https://spoonacular.com/recipes/BBQ-Gochujang-Cauliflower-Fried-Rice-984198" target="_blank">View Recipe</a>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- Reduce Waste -->
+
+    <section class="red_waste">
+        <div class="reduce_content">
+            <div class="red_title">
+                <div class="red_title_img">
+                    <img src="images/recycle-sign-svgrepo-com.svg" alt="">
+                </div>
+                <h4>Reduce Food Waste</h4>
+            </div>
+            <h2 class="red_head_1">Transform Your Kitchen Into a</h2>
+            <h2 class='red_head_2'>Zero-Waste Haven</h2>
+            <p>
+                Every year, millions of tons of food go to waste while people struggle to find recipes for their
+                ingredients. FlavorFind bridges this gap by turning your leftover ingredients into delicious, creative
+                meals.
+            </p>
+            <div class="red_card">
+                <div class="red_card_item">
+    
+                    <div class="red_card_img">
+                        <img src="images/recycle sign gree.svg" alt="">
+                    </div>
+                    <h4>40%</h4>
+                    <h4>Less Food Waste</h4>
+                    <p>Average reduction when using our platform</p>
+                </div>
+                <div class="red_card_item">
+    
+                    <div class="red_card_img">
+                        <img src="images/leaf-svgrepo-com.svg" alt="">
+                    </div>
+                    <h4>2.5M</h4>
+                    <h4>Ingredients Saved</h4>
+                    <p>From going to waste this year</p>
+                </div>
+                <div class="red_card_item">
+    
+                    <div class="red_card_img">
+                        <img src="images/heart-thin-icon.svg" alt="">
+                    </div>
+                    <h4>1M+</h4>
+                    <h4>Happy Cooks</h4>
+                    <p>Creating delicious meals from leftovers</p>
+                </div>
+            </div>
+            <div class="red_count">
+                <div class="red_count_img"><img src="images/chart-down-svgrepo-com.svg" alt=""></div>
+                <div class="red_count_content">
+                    <h4>Make Every Ingredient Count</h4>
+                    <p>By using ingredients you already have, you're not just saving money – you're helping reduce global food waste and minimizing your environmental footprint, one recipe at a time.</p>
+                </div>
+            </div>
+            <a href="#ktn" class="red_btn">Start Reducing Waste Today</a>
+        </div>
+        <div class="red_img">
+            <img src="images/john-cameron-tcDf9Nlz2kk-unsplash.jpg" alt="">
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 FoodyFy. All rights reserved. Made with love by Asad Mokarim for sustainable cooking.</p>
+        <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Cookies</a></li>
+        </ul>
+    </footer>
+    a
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
