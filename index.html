@@ -54,13 +54,13 @@
                     <a class="nav-link" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#pop_recipe">Recipes</a>
+                    <a class="nav-link"  onclick="document.querySelector('#pop_recipe').scrollIntoView({ behavior: 'smooth' });">Recipes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link"  onclick="document.querySelector('#red_waste').scrollIntoView({ behavior: 'smooth' });">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link"  onclick="document.querySelector('#footer').scrollIntoView({ behavior: 'smooth' });">Contact</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
@@ -258,7 +258,7 @@
 
     <!-- Reduce Waste -->
 
-    <section class="red_waste">
+    <section class="red_waste" id="red_waste">
         <div class="reduce_content">
             <div class="red_title">
                 <div class="red_title_img">
@@ -317,7 +317,7 @@
         </div>
     </section>
 
-    <footer>
+    <footer id="footer">
         <p>&copy; 2025 FoodyFy. All rights reserved. Made with love by Asad Mokarim for sustainable cooking.</p>
         <ul>
             <li><a href="#">Privacy</a></li>
