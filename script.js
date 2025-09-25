@@ -45,26 +45,22 @@ const addIngredient = val => {
   cookBtn.onmouseenter = () => cookBtn.style.backgroundColor = "#FFC5B4"; 
   cookBtn.onmouseleave = () => cookBtn.style.backgroundColor = "var(--tm-red)";
   
-  // Scroll to the kitchen section to show added ingredients
+  // Scroll to the kitchen section
   document.querySelector('#ktn').scrollIntoView({ behavior: 'smooth' });
   
-  // Focus on the main ingredient input after scrolling
-  setTimeout(() => {
-    if (input) {
-      input.focus();
-    }
-  }, 800); // Delay to allow smooth scroll to complete
+  // Focus after scroll
+  setTimeout(() => { if (input) input.focus(); }, 800);
 };
 
-// Parse multiple ingredients from a string (comma or space separated)
+// Parse multiple ingredients
 const parseIngredients = (inputString) => {
   return inputString
-    .split(/[,\s]+/) // Split by comma or whitespace
+    .split(/[,\s]+/)
     .map(ingredient => ingredient.trim())
     .filter(ingredient => ingredient.length > 0);
 };
 
-// Main ingredient form submit
+// Main form
 form.onsubmit = e => { 
   e.preventDefault(); 
   const ingredients = parseIngredients(input.value);
@@ -72,7 +68,7 @@ form.onsubmit = e => {
   input.value = ""; 
 };
 
-// Carousel form submit (ingForm)
+// Carousel form
 if (carouselForm && carouselInput) {
   carouselForm.onsubmit = e => { 
     e.preventDefault(); 
@@ -81,7 +77,7 @@ if (carouselForm && carouselInput) {
     carouselInput.value = ""; 
   };
 
-  // Comma key for carousel input
+  // Comma key for carousel
   carouselInput.onkeydown = e => {
     if (e.key === ",") { 
       e.preventDefault(); 
@@ -92,7 +88,7 @@ if (carouselForm && carouselInput) {
   };
 }
 
-// Main form comma key
+// Comma key for main input
 input.onkeydown = e => {
   if (e.key === ",") { 
     e.preventDefault(); 
@@ -114,122 +110,117 @@ document.querySelectorAll(".popular-item").forEach(item =>
 // ================= API ===================
 
 const recipesSection = document.querySelector(".recipes_avl");
-const apiKey = "a7766a5d5e744e72a6260be5dd0e4bbf"; // your Spoonacular key
-// const apiKey = "75c1def06a944f27a14bb5040a508151"; // your Spoonacular key
 
+// 🔑 Multiple API keys
+const apiKeys = [
+  "f4e36def5e3146538cc503501eb70fd5",
+  "a7766a5d5e744e72a6260be5dd0e4bbf",
+  "75c1def06a944f27a14bb5040a508151"
+];
+let currentKeyIndex = 0;
+const getApiKey = () => apiKeys[currentKeyIndex];
+const switchApiKey = () => { currentKeyIndex = (currentKeyIndex + 1) % apiKeys.length; return getApiKey(); };
 
+// Render recipes
+function renderRecipes(data) {
+  recipesSection.innerHTML = "";
+
+  if (!data || data.length === 0) {
+    recipesSection.innerHTML =
+      "<p style='text-align: center; padding: 50px; font-size: 1.2rem; color: var(--tm-grey);'>No recipes found with these ingredients. Try different combinations!</p>";
+    return;
+  }
+
+  const resultsTitle = document.createElement("h2");
+  resultsTitle.textContent = `Recipes with your ingredients (${data.length} found)`;
+  resultsTitle.style.cssText =
+    "grid-column: 1 / -1; text-align: center; color: var(--tm-blue); margin-bottom: 20px; font-size: 2.2rem;";
+  recipesSection.appendChild(resultsTitle);
+
+  data.forEach(recipe => {
+    fetch(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${getApiKey()}`)
+      .then(res => res.json())
+      .then(info => {
+        const stars = Math.round((info.spoonacularScore / 100) * 5);
+        const ratingHtml = `
+          <div class="rating">
+            ${"⭐".repeat(stars)}${"☆".repeat(5 - stars)}
+            <span>${(info.spoonacularScore/20).toFixed(1)}</span>
+          </div>
+        `;
+
+        const recipeCard = document.createElement("div");
+        recipeCard.classList.add("recipe_card");
+        recipeCard.innerHTML = `
+          <div class="rcp_card_img">
+            <img src="${recipe.image}" alt="${recipe.title}">
+            ${ratingHtml}
+          </div>
+          <div class="card_content">
+            <h4>${recipe.title}</h4>
+            <div class="recipe-meta">
+              <div class="meta-item">
+                <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                    clip-rule="evenodd"></path>
+                </svg>
+                <span>${info.readyInMinutes} min</span>
+              </div>
+            </div>
+            <a class="view-recipe-btn" href="https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}" target="_blank">
+              View Recipe
+            </a>
+          </div>
+        `;
+        recipesSection.appendChild(recipeCard);
+      })
+      .catch(err => {
+        console.error("Error fetching recipe details:", err);
+      });
+  });
+
+  recipesSection.scrollIntoView({ behavior: 'smooth' });
+}
+
+// Fetch recipes with retry
 const fetchRecipes = () => {
   const ingredients = [...document.querySelectorAll(".ingr li span")]
                         .map(span => span.textContent)
                         .join(",");
 
   if (!ingredients) {
-      alert("Please add at least one ingredient!");
-      return;
+    alert("Please add at least one ingredient!");
+    return;
   }
 
-  // Show loading state
-  recipesSection.innerHTML = "<p style='text-align: center; padding: 50px; font-size: 1.2rem; color: var(--tm-grey);'>Loading delicious recipes...</p>";
+  recipesSection.innerHTML =
+    "<p style='text-align: center; padding: 50px; font-size: 1.2rem; color: var(--tm-grey);'>Loading delicious recipes...</p>";
 
-  const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&apiKey=${apiKey}`;
+  const attemptFetch = (retry = true) => {
+    const url = `https://api.spoonacular.com/recipes/findByIngredients?ingredients=${ingredients}&number=6&apiKey=${getApiKey()}`;
 
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      recipesSection.innerHTML = "";
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error(`API error: ${res.status}`);
+        return res.json();
+      })
+      .then(data => renderRecipes(data))
+      .catch(err => {
+        console.error("Fetch error with key", getApiKey(), err);
 
-      if (data.length === 0) {
-        recipesSection.innerHTML = "<p style='text-align: center; padding: 50px; font-size: 1.2rem; color: var(--tm-grey);'>No recipes found with these ingredients. Try different combinations!</p>";
-        return;
-      }
-
-      // Add a title for the results
-      const resultsTitle = document.createElement("h2");
-      resultsTitle.textContent = `Recipes with your ingredients (${data.length} found)`;
-      resultsTitle.style.cssText = "grid-column: 1 / -1; text-align: center; color: var(--tm-blue); margin-bottom: 20px; font-size: 2.2rem;";
-      recipesSection.appendChild(resultsTitle);
-
-      data.forEach(recipe => {
-        // fetch full info for rating + duration
-        fetch(`https://api.spoonacular.com/recipes/${recipe.id}/information?apiKey=${apiKey}`)
-          .then(res => res.json())
-          .then(info => {
-            const stars = Math.round((info.spoonacularScore / 100) * 5); // convert 0–100 to 0–5
-            const ratingHtml = `
-              <div class="rating">
-                ${"⭐".repeat(stars)}${"☆".repeat(5 - stars)}
-                <span>${(info.spoonacularScore/20).toFixed(1)}</span>
-              </div>
-            `;
-
-            const recipeCard = document.createElement("div");
-            recipeCard.classList.add("recipe_card");
-            recipeCard.innerHTML = `
-              <div class="rcp_card_img">
-                <img src="${recipe.image}" alt="${recipe.title}">
-                ${ratingHtml}
-              </div>
-              <div class="card_content">
-                <h4>${recipe.title}</h4>
-                <div class="recipe-meta">
-                  <div class="meta-item">
-                    <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    <span>${info.readyInMinutes} min</span>
-                  </div>
-                </div>
-                <a class="view-recipe-btn" href="https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}" target="_blank">
-                  View Recipe
-                </a>
-              </div>
-            `;
-            recipesSection.appendChild(recipeCard);
-          })
-          .catch(err => {
-            console.error("Error fetching recipe details:", err);
-            // Create a simplified card without full details
-            const recipeCard = document.createElement("div");
-            recipeCard.classList.add("recipe_card");
-            recipeCard.innerHTML = `
-              <div class="rcp_card_img">
-                <img src="${recipe.image}" alt="${recipe.title}">
-                <div class="rating">
-                  <span class="star">⭐</span>
-                  <span>4.0</span>
-                </div>
-              </div>
-              <div class="card_content">
-                <h4>${recipe.title}</h4>
-                <div class="recipe-meta">
-                  <div class="meta-item">
-                    <svg class="meta-icon" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                        clip-rule="evenodd"></path>
-                    </svg>
-                    <span>30 min</span>
-                  </div>
-                </div>
-                <a class="view-recipe-btn" href="https://spoonacular.com/recipes/${recipe.title.replace(/ /g, "-")}-${recipe.id}" target="_blank">
-                  View Recipe
-                </a>
-              </div>
-            `;
-            recipesSection.appendChild(recipeCard);
-          });
+        if (retry) {
+          switchApiKey();
+          attemptFetch(false);
+        } else {
+          recipesSection.innerHTML =
+            "<p style='text-align: center; padding: 50px; font-size: 1.2rem; color: var(--tm-red);'>Sorry, all API keys failed. Please try again later.</p>";
+        }
       });
+  };
 
-      // Scroll to recipes section
-      recipesSection.scrollIntoView({ behavior: 'smooth' });
-    })
-    .catch(err => {
-      console.error("Error fetching recipes:", err);
-      recipesSection.innerHTML = "<p style='text-align: center; padding: 50px; font-size: 1.2rem; color: var(--tm-red);'>Sorry, there was an error fetching recipes. Please try again later.</p>";
-    });
+  attemptFetch();
 };
 
-// Cook Now button click
+// Cook Now button
 cookBtn.addEventListener("click", fetchRecipes);
